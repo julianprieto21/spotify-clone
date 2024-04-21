@@ -7,6 +7,7 @@ export default {
         primary: "#fffff1",
         secondary: "#b3b3b3",
         green: "#1ed45e",
+        black: "#000000",
       },
     },
   },

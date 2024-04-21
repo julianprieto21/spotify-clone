@@ -18,4 +18,5 @@ export type Playlist = {
   image: string;
   owner: string;
   songs: Song[];
+  color: string;
 };

@@ -13,6 +13,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#FF5733", // Color en formato hexadecimal
   },
   {
     id: "2",
@@ -26,6 +27,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#28A745", // Color en formato hexadecimal
   },
   {
     id: "3",
@@ -39,6 +41,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#007BFF", // Color en formato hexadecimal
   },
   {
     id: "4",
@@ -52,6 +55,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#FFC107", // Color en formato hexadecimal
   },
   {
     id: "5",
@@ -65,6 +69,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#DC3545", // Color en formato hexadecimal
   },
   {
     id: "6",
@@ -78,6 +83,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#6C757D", // Color en formato hexadecimal
   },
   {
     id: "7",
@@ -91,6 +97,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#17A2B8", // Color en formato hexadecimal
   },
   {
     id: "8",
@@ -104,6 +111,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#FFD700", // Color en formato hexadecimal
   },
   {
     id: "9",
@@ -117,6 +125,7 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#FF69B4", // Color en formato hexadecimal
   },
   {
     id: "10",
@@ -130,5 +139,6 @@ export const PLAYLISTS: Playlist[] = [
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
+    color: "#8A2BE2", // Color en formato hexadecimal
   },
 ];
