@@ -8,9 +8,12 @@ import PlayButton from "./PlayButton.astro";
   {
     PLAYLISTS.slice(0, 8).map((playlist: Playlist) => {
       const type = playlist.type == "Lista" ? "playlist" : "album";
+      const href = playlist.isLikes
+        ? "collection/tracks"
+        : `/${type}/${playlist.id}`;
       return (
         <a
-          href={`/${type}/${playlist.id}`}
+          href={href}
           class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-md flex justify-start items-center gap-4 shadow-md"
         >
           <img src={playlist.image} class="size-16 rounded-l-md" />

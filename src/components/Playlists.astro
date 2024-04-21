@@ -25,10 +25,14 @@ import type { Playlist } from "../lib/types";
   <ul class="mt-2">
     {
       PLAYLISTS.map((playlist: Playlist) => {
+        const type = playlist.type == "Lista" ? "playlist" : "album";
+        const href = playlist.isLikes
+          ? "collection/tracks"
+          : `/${type}/${playlist.id}`;
         return (
           <a
             class="flex flex-row p-2 gap-3 hover:bg-secondary/5 rounded-md"
-            href={`/playlist/${playlist.id}`}
+            href={href}
           >
             <img
               src={playlist.image}
