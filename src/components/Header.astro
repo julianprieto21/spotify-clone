@@ -1,0 +1,38 @@
+---
+import Bell from "./icons/Bell.astro";
+import Chevron from "./icons/Chevron.astro";
+
+const { playlist } = Astro.props;
+const color = playlist ? playlist.color : "";
+---
+
+<header
+  class="flex flex-row justify-between items-center w-full h-16 rounded-t-lg"
+>
+  <div class="flex flex-row gap-2 pl-6">
+    <a
+      href="#"
+      aria-disabled="true"
+      class="p-2 bg-[--background-color] rounded-full aria-disabled:opacity-50 aria-disabled:cursor-not-allowed"
+      ><Chevron class="size-4 rotate-180" /></a
+    >
+    <a
+      href="#"
+      aria-disabled="true"
+      class="p-2 bg-[--background-color] rounded-full aria-disabled:opacity-50 aria-disabled:cursor-not-allowed"
+      ><Chevron class="size-4" /></a
+    >
+  </div>
+  <div class="flex flex-row gap-2 pr-6 text-secondary">
+    <a
+      href="#"
+      class="p-2 bg-black/60 rounded-full hover:scale-110 hover:text-primary"
+    >
+      <Bell class="size-4" />
+    </a>
+    <button
+      class="p-2 size-8 bg-black/60 rounded-full hover:scale-105 hover:text-primary"
+    >
+    </button>
+  </div>
+</header>
