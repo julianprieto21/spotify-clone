@@ -11,7 +11,7 @@ export type Song = {
 export type Playlist = {
   id: string;
   name: string;
-  type: "Lista" | "Álbum";
+  type: "Lista" | "Álbum" | "Artista";
   own: boolean;
   length: number;
   pin: boolean;
