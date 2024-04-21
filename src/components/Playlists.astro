@@ -30,7 +30,10 @@ import type { Playlist } from "../lib/types";
             class="flex flex-row p-2 gap-3 hover:bg-secondary/5 rounded-md"
             href={`/playlist/${playlist.id}`}
           >
-            <img src={playlist.image} class="size-12 rounded-md" />
+            <img
+              src={playlist.image}
+              class={`size-12 ${playlist.type == "Artista" ? "rounded-full" : "rounded-md"}`}
+            />
             <main class="flex flex-col gap-0.5">
               <h1>{playlist.name}</h1>
               <div class="flex flex-row text-sm font-light text-secondary items-center gap-1">

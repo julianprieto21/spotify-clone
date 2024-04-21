@@ -1,18 +1,21 @@
 ---
 import { PLAYLISTS } from "../lib/data";
 import type { Playlist } from "../lib/types";
+import PlayButton from "./PlayButton.astro";
 ---
 
 <section class="grid grid-cols-4 px-6 mt-2 mb-10 gap-3">
   {
     PLAYLISTS.slice(0, 8).map((playlist: Playlist) => {
+      const type = playlist.type == "Lista" ? "playlist" : "album";
       return (
         <a
-          href={`/playlist/${playlist.id}`}
-          class="bg-secondary/10 text-primary h-16 rounded-md flex justify-start items-center gap-4 shadow-md"
+          href={`/${type}/${playlist.id}`}
+          class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-md flex justify-start items-center gap-4 shadow-md"
         >
           <img src={playlist.image} class="size-16 rounded-l-md" />
           <h1 class="font-semibold">{playlist.name}</h1>
+          <PlayButton class="hidden group-hover:grid right-2" />
         </a>
       );
     })
