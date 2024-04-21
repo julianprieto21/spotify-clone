@@ -14,6 +14,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FF5733", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "2",
@@ -28,6 +29,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#28A745", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "3",
@@ -42,20 +44,22 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#007BFF", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "4",
-    name: "Mi álbum favorito",
-    type: "Álbum",
+    name: "Canciones que te gustan",
+    type: "Lista",
     own: false,
     length: 12,
     pin: true,
     image: "https://example.com/image4.jpg",
-    owner: "Ana Fernández",
+    owner: "Julián Prieto",
     songs: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FFC107", // Color en formato hexadecimal
+    isLikes: true,
   },
   {
     id: "5",
@@ -70,6 +74,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#DC3545", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "6",
@@ -84,6 +89,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#6C757D", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "7",
@@ -98,6 +104,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#17A2B8", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "8",
@@ -112,6 +119,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FFD700", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "9",
@@ -126,6 +134,7 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FF69B4", // Color en formato hexadecimal
+    isLikes: false,
   },
   {
     id: "10",
@@ -140,5 +149,6 @@ export const PLAYLISTS: Playlist[] = [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#8A2BE2", // Color en formato hexadecimal
+    isLikes: false,
   },
 ];

@@ -19,4 +19,5 @@ export type Playlist = {
   owner: string;
   songs: Song[];
   color: string;
+  isLikes: boolean;
 };
