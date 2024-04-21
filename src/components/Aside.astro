@@ -1,0 +1,75 @@
+---
+import Home from "./icons/Home.astro";
+import Search from "./icons/Search.astro";
+import Library from "./icons/Library.astro";
+import Plus from "./icons/Plus.astro";
+import ArrowRight from "./icons/ArrowRight.astro";
+import Playlists from "./Playlists.astro";
+
+const buttons = [
+  {
+    icon: Home,
+    text: "Inicio",
+    href: "/",
+  },
+  {
+    icon: Search,
+    text: "Buscar",
+    href: "/search",
+  },
+];
+---
+
+<section class="bg-[--background-accent] h-[112px] rounded-lg">
+  <ul class="size-full flex flex-col justify-around px-6 py-2">
+    {
+      buttons.slice(0, 2).map((button) => {
+        const Icon = button.icon;
+        return (
+          <li>
+            <a
+              href={button.href}
+              class="flex flex-row justify-start items-center gap-5 text-secondary hover:text-primary transition duration-300"
+            >
+              <Icon class="size-6" />
+              <h2 class="font-bold">{button.text}</h2>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+<section class="bg-[--background-accent] grow rounded-lg pt-3">
+  <div class="flex flex-row justify-between items-center px-4">
+    <button
+      class="pl-2 flex flex-row justify-start items-center gap-3 text-secondary hover:text-primary transition duration-300"
+    >
+      <Library class="size-6" />
+      <h2 class="font-bold">Tu biblioteca</h2>
+    </button>
+    <div class="flex flex-row items-center gap-2">
+      <button
+        class="text-secondary hover:text-primary hover:bg-neutral-700/20 transition duration-300 p-2 rounded-full"
+      >
+        <Plus class="size-4" />
+      </button>
+      <button
+        class="text-secondary hover:text-primary hover:bg-neutral-700/20 transition duration-300 p-2 rounded-full"
+      >
+        <ArrowRight class="size-4" />
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-row justify-start gap-2 mt-5 pl-4">
+    <button
+      class="bg-[#252525] hover:bg-[#2a2a2a] transition duration-300 px-3 py-1.5 rounded-full text-sm"
+      >Listas</button
+    >
+    <button
+      class="bg-[#252525] hover:bg-[#2a2a2a] transition duration-300 px-3 py-1.5 rounded-full text-sm"
+      >Álbumes</button
+    >
+  </div>
+  <Playlists />
+</section>

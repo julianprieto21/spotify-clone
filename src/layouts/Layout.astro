@@ -1,4 +1,6 @@
 ---
+import Aside from "../components/Aside.astro";
+
 interface Props {
   title: string;
 }
@@ -16,8 +18,81 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <slot />
+  <body class="relative h-screen gap-2 p-2">
+    <aside class="[grid-area:aside] flex flex-col gap-2">
+      <Aside />
+    </aside>
+    <main
+      class="[grid-area:main] bg-[--background-accent] size-full rounded-lg"
+    >
+      <slot />
+    </main>
+    <footer class="[grid-area:player] h-[72px]"></footer>
   </body>
 </html>
-<style is:global></style>
+<style is:global>
+  :root {
+    --background-color: #000000;
+    --background-accent: #121212;
+    --primary: #fffff1;
+    --secondary: #b3b3b3;
+  }
+  html {
+    font-family: "CircularStd", system-ui, sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary);
+  }
+  body {
+    display: grid;
+    grid-template-areas: "aside main" "player player";
+    grid-template-columns: 352px 1fr;
+    grid-template-rows: 1fr auto;
+  }
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Book.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @supports selector(::-webkit-scrollbar) {
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-thumb {
+      height: 10px;
+      background-color: #535353;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #7c7c7c;
+    }
+  }
+</style>
