@@ -1,0 +1,40 @@
+---
+import { PLAYLISTS } from "../lib/data";
+import type { Playlist } from "../lib/types";
+import PlayButton from "./PlayButton.astro";
+const { title } = Astro.props;
+---
+
+<section class="px-3">
+  <div class="flex flex-row justify-between items-center">
+    <h1 class="text-2xl font-bold text-primary pl-3 tracking-tighter">
+      {title}
+    </h1>
+    <h2 class="text-sm font-semibold text-secondary pr-3 hover:underline">
+      Mostrar todos
+    </h2>
+  </div>
+  <ul class="flex flex-row mt-1">
+    {
+      PLAYLISTS.slice(0, 8).map((playlist: Playlist) => {
+        const type = playlist.type == "Lista" ? "playlist" : "album";
+        return (
+          <a
+            href={`/${type}/${playlist.id}`}
+            class="relative h-[268px] w-48 hover:bg-secondary/5 rounded-md p-3 group"
+          >
+            <img
+              src={playlist.image}
+              class={`aspect-square shadow-md ${playlist.type == "Artista" ? "rounded-full" : "rounded-md"}`}
+            />
+            <h1 class="mt-2 text-primary text-md">{playlist.name}</h1>
+            <button class="mt-2 text-secondary text-sm">
+              De {playlist.owner}
+            </button>
+            <PlayButton class="grid bottom-20 transition-all duration-200 right-5 group-hover:bottom-[100px] opacity-0 group-hover:opacity-100" />
+          </a>
+        );
+      })
+    }
+  </ul>
+</section>
