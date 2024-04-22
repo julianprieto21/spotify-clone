@@ -27,7 +27,7 @@ export type PlayerStore = {
   currentMusic: { playlist: Playlist; song: Song; songs: Song[] };
   setIsPlaying: (isPlaying: boolean) => void;
   setCurrentMusic: (currentMusic: {
-    playlist: Playlist[];
+    playlist: Playlist;
     song: Song;
     songs: Song[];
   }) => void;

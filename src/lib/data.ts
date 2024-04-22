@@ -10,7 +10,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image1.jpg",
     owner: "Julián Prieto",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FF5733", // Color en formato hexadecimal
@@ -25,7 +25,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: true,
     image: "https://example.com/image2.jpg",
     owner: "María González",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#28A745", // Color en formato hexadecimal
@@ -40,7 +40,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image3.jpg",
     owner: "Carlos Ramírez",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#007BFF", // Color en formato hexadecimal
@@ -55,7 +55,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: true,
     image: "https://example.com/image4.jpg",
     owner: "Julián Prieto",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FFC107", // Color en formato hexadecimal
@@ -70,7 +70,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: true,
     image: "https://example.com/image5.jpg",
     owner: "Roberto Sánchez",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#DC3545", // Color en formato hexadecimal
@@ -85,7 +85,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image6.jpg",
     owner: "Elena Martínez",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#6C757D", // Color en formato hexadecimal
@@ -100,7 +100,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image7.jpg",
     owner: "Andrés Gutiérrez",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#17A2B8", // Color en formato hexadecimal
@@ -115,7 +115,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: true,
     image: "https://example.com/image8.jpg",
     owner: "Laura Torres",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FFD700", // Color en formato hexadecimal
@@ -130,7 +130,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image9.jpg",
     owner: "Javier Castillo",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#FF69B4", // Color en formato hexadecimal
@@ -145,7 +145,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: true,
     image: "https://example.com/image10.jpg",
     owner: "Sofía Herrera",
-    songs: [
+    songs_id: [
       // Agrega objetos de tipo Song aquí
     ],
     color: "#8A2BE2", // Color en formato hexadecimal
@@ -153,4 +153,4 @@ export const PLAYLISTS: Playlist[] = [
   },
 ];
 
-export const SONGS: Song[] = [];
+export const songs_id: Song[] = [];

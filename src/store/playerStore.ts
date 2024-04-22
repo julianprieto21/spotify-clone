@@ -4,7 +4,19 @@ import type { PlayerStore, Playlist, Song } from "../lib/types";
 export const usePlayerStore = create<PlayerStore>((set) => ({
   isPlaying: false,
   currentMusic: {
-    playlist: [],
+    playlist: {
+      id: "",
+      name: "",
+      type: "Lista",
+      own: false,
+      length: 0,
+      pin: false,
+      image: "",
+      owner: "",
+      songs_id: [],
+      color: "",
+      isLikes: false,
+    },
     song: {
       id: "",
       name: "",
