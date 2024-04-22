@@ -17,7 +17,7 @@ export type Playlist = {
   pin: boolean;
   image: string;
   owner: string;
-  songs: Song[];
+  songs_id: string[];
   color: string;
   isLikes: boolean;
 };

@@ -6,7 +6,9 @@ export async function GET({ params, request }) {
   const id = urlObject.searchParams.get("id");
 
   const playlist = PLAYLISTS.find((playlist) => playlist.id === id);
-  const songs = SONGS.filter((song) => song.playlistId === playlist?.id);
+  const songs = playlist.songs.map((songId) =>
+    SONGS.find((song) => song.id === songId)
+  );
 
   return new Response(JSON.stringify({ songs, playlist }), {
     headers: {
