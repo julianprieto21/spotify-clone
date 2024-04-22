@@ -153,4 +153,4 @@ export const PLAYLISTS: Playlist[] = [
   },
 ];
 
-export const songs_id: Song[] = [];
+export const SONGS: Song[] = [];
