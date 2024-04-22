@@ -21,3 +21,14 @@ export type Playlist = {
   color: string;
   isLikes: boolean;
 };
+
+export type PlayerStore = {
+  isPlaying: boolean;
+  currentMusic: { playlist: Playlist[]; song: Song; songs: Song[] };
+  setIsPlaying: (isPlaying: boolean) => void;
+  setCurrentMusic: (currentMusic: {
+    playlist: Playlist[];
+    song: Song;
+    songs: Song[];
+  }) => void;
+};
