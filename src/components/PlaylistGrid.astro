@@ -1,7 +1,7 @@
 ---
 import { PLAYLISTS } from "../lib/data";
 import type { Playlist } from "../lib/types";
-import PlayButton from "./PlayButton.astro";
+import { PlayButton } from "./PlayButton";
 ---
 
 <section class="grid grid-cols-4 px-6 mt-2 mb-10 gap-3">
@@ -18,7 +18,7 @@ import PlayButton from "./PlayButton.astro";
         >
           <img src={playlist.image} class="size-16 rounded-l-md" />
           <h1 class="font-semibold">{playlist.name}</h1>
-          <PlayButton class="hidden group-hover:grid right-2" />
+          <PlayButton className="hidden group-hover:grid right-2" />
         </a>
       );
     })

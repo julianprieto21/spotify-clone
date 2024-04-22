@@ -1,3 +1,5 @@
+import { usePlayerStore } from "../store/playerStore";
+
 const Shuffle = ({ className }: { className: string }) => {
   return (
     <button type="button" title="Shuffle" className={className}>
@@ -49,6 +51,7 @@ const NextPrevSong = ({
   );
 };
 const Play = ({ className }: { className: string }) => {
+  const { isPlaying } = usePlayerStore((state) => state);
   const PlayIcon = (
     <svg
       aria-hidden="true"
@@ -71,7 +74,7 @@ const Play = ({ className }: { className: string }) => {
   );
   return (
     <button type="button" title="Play/Pause" className={className}>
-      {PlayIcon}
+      {isPlaying ? PauseIcon : PlayIcon}
     </button>
   );
 };
