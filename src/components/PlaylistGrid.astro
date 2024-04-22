@@ -12,14 +12,17 @@ import { PlayButton } from "./PlayButton";
         ? "collection/tracks"
         : `/${type}/${playlist.id}`;
       return (
-        <a
-          href={href}
-          class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-md flex justify-start items-center gap-4 shadow-md"
-        >
-          <img src={playlist.image} class="size-16 rounded-l-md" />
-          <h1 class="font-semibold">{playlist.name}</h1>
-          <PlayButton className="hidden group-hover:grid right-2" />
-        </a>
+        <div class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-md shadow-md">
+          <a href={href} class="w-full flex justify-start items-center gap-4 ">
+            <img src={playlist.image} class="size-16 rounded-l-md" />
+            <h1 class="font-semibold">{playlist.name}</h1>
+          </a>
+          <PlayButton
+            id={playlist.id}
+            client:visible
+            className="hidden group-hover:grid right-2 bottom-2"
+          />
+        </div>
       );
     })
   }

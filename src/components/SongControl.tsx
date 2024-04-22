@@ -1,8 +1,23 @@
+import { useState } from "react";
+import type { Playlist, Song } from "../lib/types";
 import { usePlayerStore } from "../store/playerStore";
+import { PauseIcon, PlayButton, PlayIcon } from "./PlayButton";
 
-const Shuffle = ({ className }: { className: string }) => {
+const Shuffle = () => {
+  const [active, setActive] = useState(false);
   return (
-    <button type="button" title="Shuffle" className={className}>
+    <button
+      type="button"
+      title="Shuffle"
+      className={`${
+        active
+          ? "text-green/80 hover:text-green "
+          : "text-primary/70 hover:text-primary"
+      } transition`}
+      onClick={() => {
+        setActive(!active);
+      }}
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -15,9 +30,21 @@ const Shuffle = ({ className }: { className: string }) => {
     </button>
   );
 };
-const Repeat = ({ className }: { className: string }) => {
+const Repeat = () => {
+  const [active, setActive] = useState(false);
   return (
-    <button type="button" title="Repeat" className={className}>
+    <button
+      type="button"
+      title="Repeat"
+      className={`${
+        active
+          ? "text-green/80 hover:text-green "
+          : "text-primary/70 hover:text-primary"
+      } transition`}
+      onClick={() => {
+        setActive(!active);
+      }}
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -51,30 +78,22 @@ const NextPrevSong = ({
   );
 };
 const Play = ({ className }: { className: string }) => {
-  const { isPlaying } = usePlayerStore((state) => state);
-  const PlayIcon = (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="size-5 text-black"
-    >
-      <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
-    </svg>
-  );
-  const PauseIcon = (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="size-5 text-black"
-    >
-      <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"></path>
-    </svg>
-  );
+  const { isPlaying, setIsPlaying } = usePlayerStore((state) => state);
+  const handleClick = () => {
+    setIsPlaying(!isPlaying);
+  };
   return (
-    <button type="button" title="Play/Pause" className={className}>
-      {isPlaying ? PauseIcon : PlayIcon}
+    <button
+      type="button"
+      title="Play/Pause"
+      className={className}
+      onClick={handleClick}
+    >
+      {isPlaying ? (
+        <PauseIcon className="size-5 text-black" />
+      ) : (
+        <PlayIcon className="size-5 text-black" />
+      )}
     </button>
   );
 };
@@ -83,17 +102,18 @@ export function SongControl() {
   return (
     <div className="relative flex flex-col justify-center items-center gap-2">
       <div className="flex flex-row justify-center items-center gap-6">
-        <Shuffle className="text-primary/70 hover:text-primary transition" />
+        <Shuffle />
         <NextPrevSong
           className="text-primary/70 hover:text-primary transition"
           action="prev"
         />
+        {/* <Play className="p-1.5 bg-white rounded-full hover:scale-105" /> */}
         <Play className="p-1.5 bg-white rounded-full hover:scale-105" />
         <NextPrevSong
           className="text-primary/70 hover:text-primary transition"
           action="next"
         />
-        <Repeat className="text-primary/70 hover:text-primary transition" />
+        <Repeat />
       </div>
       <div className="flex w-full flex-row justify-between items-center text-secondary/70 text-sm gap-2">
         <p>0:00</p>
