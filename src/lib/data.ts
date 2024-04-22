@@ -1,4 +1,4 @@
-import type { Playlist } from "./types";
+import type { Playlist, Song } from "./types";
 
 export const PLAYLISTS: Playlist[] = [
   {
@@ -152,3 +152,5 @@ export const PLAYLISTS: Playlist[] = [
     isLikes: false,
   },
 ];
+
+export const SONGS: Song[] = [];

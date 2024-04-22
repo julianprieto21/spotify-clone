@@ -29,19 +29,30 @@ export function PlayButton({
   className: string;
   id: string;
 }) {
-  const { isPlaying, setIsPlaying, setCurrentMusic } = usePlayerStore(
-    (state) => state
-  );
+  const { isPlaying, setIsPlaying, currentMusic, setCurrentMusic } =
+    usePlayerStore((state) => state);
+  const playing = currentMusic?.playlist?.id === id;
   const handleClick = () => {
-    setIsPlaying(!isPlaying);
+    if (isPlaying && playing) {
+      setIsPlaying(false);
+      return;
+    }
+    fetch(`/api/get-playlist.json?id=${id}`)
+      .then((res) => res.json())
+      .then((data: any) => {
+        const { songs, playlist } = data;
+        setCurrentMusic({ songs, playlist, song: songs[0] });
+        setIsPlaying(true);
+      });
   };
+
   return (
     <button
       type="button"
       onClick={handleClick}
       className={`absolute size-12 bg-green place-content-center rounded-full shadow-xl z-10 ${className}`}
     >
-      {isPlaying ? (
+      {playing && isPlaying ? (
         <PauseIcon className="size-6 text-black" />
       ) : (
         <PlayIcon className="size-6 text-black" />
