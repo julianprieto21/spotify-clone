@@ -4,7 +4,7 @@ import type { Playlist } from "../lib/types";
 import { PlayButton } from "./PlayButton";
 ---
 
-<section class="grid grid-cols-4 px-6 mt-2 mb-10 gap-3">
+<section class="grid grid-cols-2 xl:grid-cols-4 px-6 mt-2 mb-10 gap-3">
   {
     PLAYLISTS.slice(0, 8).map((playlist: Playlist) => {
       const type = playlist.type == "Lista" ? "playlist" : "album";
