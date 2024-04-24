@@ -10,9 +10,7 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image1.jpg",
     owner: "Julián Prieto",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
+    songs_id: ["1"],
     color: "#FF5733", // Color en formato hexadecimal
     isLikes: false,
   },
@@ -153,4 +151,14 @@ export const PLAYLISTS: Playlist[] = [
   },
 ];
 
-export const SONGS: Song[] = [];
+export const SONGS: Song[] = [
+  {
+    id: "1",
+    name: "Lost Tape",
+    image: "images/1.jpeg",
+    duration_sec: 192,
+    author: "Duki & C.R.O.",
+    album: "-",
+    release_date: new Date(),
+  },
+];
