@@ -1,5 +1,4 @@
 import { usePlayerStore } from "../store/playerStore";
-import type { Playlist } from "../lib/types";
 
 export const PlayIcon = ({ className }: { className: string }) => (
   <svg
@@ -32,6 +31,7 @@ export function PlayButton({
   const { isPlaying, setIsPlaying, currentMusic, setCurrentMusic } =
     usePlayerStore((state) => state);
   const playing = currentMusic?.playlist?.id === id;
+
   const handleClick = () => {
     if (isPlaying && playing) {
       setIsPlaying(false);

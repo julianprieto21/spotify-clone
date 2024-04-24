@@ -25,10 +25,12 @@ export type Playlist = {
 export type PlayerStore = {
   isPlaying: boolean;
   currentMusic: { playlist: Playlist; song: Song; songs: Song[] };
+  volume: number;
   setIsPlaying: (isPlaying: boolean) => void;
   setCurrentMusic: (currentMusic: {
     playlist: Playlist;
     song: Song;
     songs: Song[];
   }) => void;
+  setVolume: (volume: number) => void;
 };
