@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Playlist, Song } from "../lib/types";
 import { usePlayerStore } from "../store/playerStore";
 import { PauseIcon, PlayButton, PlayIcon } from "./PlayButton";
@@ -59,13 +59,35 @@ const Repeat = () => {
 const NextPrevSong = ({
   className,
   action,
+  currentMusic,
+  audio,
 }: {
   className: string;
   action: string;
+  currentMusic: { song: Song; playlist: Playlist; songs: Song[] };
+  audio: React.RefObject<HTMLAudioElement>;
 }) => {
   const rotate = action === "prev" ? " rotate-180" : "";
+
+  const handleClick = () => {
+    if (action === "prev") {
+      if (audio.current && audio.current.currentTime > 10) {
+        audio.current.currentTime = 0;
+      } else {
+        // Seleccionar cancion anterior en la lista
+      }
+    } else {
+      // Seleccionar cancion siguiente en la lista
+    }
+  };
+
   return (
-    <button type="button" title="Previous Song" className={className + rotate}>
+    <button
+      type="button"
+      title="Previous Song"
+      className={className + rotate}
+      onClick={handleClick}
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -98,28 +120,73 @@ const Play = ({ className }: { className: string }) => {
   );
 };
 
-export function SongControl() {
+export function SongControl({
+  audio,
+}: {
+  audio: React.RefObject<HTMLAudioElement>;
+}) {
+  const [currentTime, setCurrentTime] = useState<number>(0);
+
+  useEffect(() => {
+    if (!audio.current) return;
+    audio.current.addEventListener("timeupdate", handleTimeUpdate);
+    return () => {
+      audio.current?.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  });
+  const handleTimeUpdate = () => {
+    if (!audio.current) return;
+    setCurrentTime(audio.current.currentTime);
+  };
+  const formatTime = (time: number) => {
+    if (time == null) return `0:00`;
+
+    const seconds = Math.floor(time % 60);
+    const minutes = Math.floor(time / 60);
+
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  const duration = audio.current ? audio.current.duration : 1;
+  const progress = (currentTime / duration) * 100;
+
   return (
-    <div className="relative flex flex-col justify-center items-center gap-2">
+    <div className="relative flex flex-col justify-center items-center gap-2 mt-1">
       <div className="flex flex-row justify-center items-center gap-6">
         <Shuffle />
         <NextPrevSong
+          audio={audio}
+          currentMusic={{
+            song: {} as Song,
+            playlist: {} as Playlist,
+            songs: [],
+          }}
           className="text-primary/70 hover:text-primary transition"
           action="prev"
         />
-        {/* <Play className="p-1.5 bg-white rounded-full hover:scale-105" /> */}
         <Play className="p-1.5 bg-white rounded-full hover:scale-105" />
         <NextPrevSong
+          audio={audio}
+          currentMusic={{
+            song: {} as Song,
+            playlist: {} as Playlist,
+            songs: [],
+          }}
           className="text-primary/70 hover:text-primary transition"
           action="next"
         />
         <Repeat />
       </div>
       <div className="flex w-full flex-row justify-between items-center text-secondary/70 text-sm gap-2">
-        <p>0:00</p>
-        <span className="h-1 w-[626px] bg-secondary/50 rounded-full mb-0.5"></span>
-        <span className="absolute left-[36px] h-1 max-w-[626px] bg-primary rounded-full mb-0.5 w-0"></span>
-        <p>4:19</p>
+        <p>{formatTime(currentTime)}</p>
+        <span className="h-1 w-[626px] bg-secondary/50 rounded-full mb-0.5 relative">
+          <span
+            className="absolute h-1 max-w-[626px] bg-primary rounded-full mb-0.5 w-0"
+            style={{ width: `${progress}%` }}
+          ></span>
+        </span>
+
+        <p>{duration ? formatTime(duration) : "0:00"}</p>
       </div>
     </div>
   );

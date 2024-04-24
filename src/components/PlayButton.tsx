@@ -37,6 +37,10 @@ export function PlayButton({
       setIsPlaying(false);
       return;
     }
+    if (!isPlaying && playing) {
+      setIsPlaying(true);
+      return;
+    }
     fetch(`/api/get-playlist.json?id=${id}`)
       .then((res) => res.json())
       .then((data: any) => {
