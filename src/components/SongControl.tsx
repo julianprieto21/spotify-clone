@@ -68,16 +68,38 @@ const NextPrevSong = ({
   audio: React.RefObject<HTMLAudioElement>;
 }) => {
   const rotate = action === "prev" ? " rotate-180" : "";
+  const { isPlaying, setCurrentMusic } = usePlayerStore((state) => state);
 
   const handleClick = () => {
+    if (!isPlaying) return;
     if (action === "prev") {
       if (audio.current && audio.current.currentTime > 10) {
         audio.current.currentTime = 0;
       } else {
         // Seleccionar cancion anterior en la lista
+        const index = currentMusic.songs.findIndex(
+          (song) => song.id === currentMusic.song.id
+        );
+        if (index == 0) return;
+        const nextSong = {
+          song: currentMusic.songs[index - 1],
+          playlist: currentMusic.playlist,
+          songs: currentMusic.songs,
+        };
+        setCurrentMusic(nextSong);
       }
     } else {
       // Seleccionar cancion siguiente en la lista
+      const index = currentMusic.songs.findIndex(
+        (song) => song.id === currentMusic.song.id
+      );
+      if (currentMusic.songs.length - 1 == index) return;
+      const nextSong = {
+        song: currentMusic.songs[index + 1],
+        playlist: currentMusic.playlist,
+        songs: currentMusic.songs,
+      };
+      setCurrentMusic(nextSong);
     }
   };
 
@@ -126,7 +148,11 @@ export function SongControl({
   audio: React.RefObject<HTMLAudioElement>;
 }) {
   const [currentTime, setCurrentTime] = useState<number>(0);
+  const { currentMusic } = usePlayerStore((state) => state);
 
+  useEffect(() => {
+    console.log(currentTime);
+  }, [currentTime]);
   useEffect(() => {
     if (!audio.current) return;
     audio.current.addEventListener("timeupdate", handleTimeUpdate);
@@ -156,22 +182,14 @@ export function SongControl({
         <Shuffle />
         <NextPrevSong
           audio={audio}
-          currentMusic={{
-            song: {} as Song,
-            playlist: {} as Playlist,
-            songs: [],
-          }}
+          currentMusic={currentMusic}
           className="text-primary/70 hover:text-primary transition"
           action="prev"
         />
         <Play className="p-1.5 bg-white rounded-full hover:scale-105" />
         <NextPrevSong
           audio={audio}
-          currentMusic={{
-            song: {} as Song,
-            playlist: {} as Playlist,
-            songs: [],
-          }}
+          currentMusic={currentMusic}
           className="text-primary/70 hover:text-primary transition"
           action="next"
         />

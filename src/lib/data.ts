@@ -10,8 +10,8 @@ export const PLAYLISTS: Playlist[] = [
     pin: false,
     image: "https://example.com/image1.jpg",
     owner: "Julián Prieto",
-    songs_id: ["1"],
-    color: "#FF5733", // Color en formato hexadecimal
+    songs_id: ["1", "2"],
+    color: "#FF5733",
     isLikes: false,
   },
   {
@@ -59,96 +59,6 @@ export const PLAYLISTS: Playlist[] = [
     color: "#FFC107", // Color en formato hexadecimal
     isLikes: true,
   },
-  {
-    id: "5",
-    name: "Rock clásico",
-    type: "Lista",
-    own: true,
-    length: 18,
-    pin: true,
-    image: "https://example.com/image5.jpg",
-    owner: "Roberto Sánchez",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#DC3545", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "6",
-    name: "Canciones populares",
-    type: "Lista",
-    own: false,
-    length: 20,
-    pin: false,
-    image: "https://example.com/image6.jpg",
-    owner: "Elena Martínez",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#6C757D", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "7",
-    name: "Instrumentales",
-    type: "Álbum",
-    own: true,
-    length: 10,
-    pin: false,
-    image: "https://example.com/image7.jpg",
-    owner: "Andrés Gutiérrez",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#17A2B8", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "8",
-    name: "Música de fiesta",
-    type: "Lista",
-    own: false,
-    length: 25,
-    pin: true,
-    image: "https://example.com/image8.jpg",
-    owner: "Laura Torres",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#FFD700", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "9",
-    name: "Música electrónica",
-    type: "Lista",
-    own: true,
-    length: 17,
-    pin: false,
-    image: "https://example.com/image9.jpg",
-    owner: "Javier Castillo",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#FF69B4", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "10",
-    name: "Éxitos del momento",
-    type: "Lista",
-    own: false,
-    length: 22,
-    pin: true,
-    image: "https://example.com/image10.jpg",
-    owner: "Sofía Herrera",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#8A2BE2", // Color en formato hexadecimal
-    isLikes: false,
-  },
 ];
 
 export const SONGS: Song[] = [
@@ -158,6 +68,15 @@ export const SONGS: Song[] = [
     image: "images/1.jpeg",
     duration_sec: 192,
     author: "Duki & C.R.O.",
+    album: "-",
+    release_date: new Date(),
+  },
+  {
+    id: "2",
+    name: "R.I.P. La Manshon Freestyle",
+    image: "images/2.jpeg",
+    duration_sec: 178,
+    author: "Duki & Oli Sesion Baitch",
     album: "-",
     release_date: new Date(),
   },
