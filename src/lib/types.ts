@@ -26,6 +26,8 @@ export type PlayerStore = {
   isPlaying: boolean;
   currentMusic: { playlist: Playlist; song: Song; songs: Song[] };
   volume: number;
+  shuffle: boolean;
+  repeat: boolean;
   setIsPlaying: (isPlaying: boolean) => void;
   setCurrentMusic: (currentMusic: {
     playlist: Playlist;
@@ -33,4 +35,6 @@ export type PlayerStore = {
     songs: Song[];
   }) => void;
   setVolume: (volume: number) => void;
+  setShuffle: (shuffle: boolean) => void;
+  setRepeat: (repeat: boolean) => void;
 };

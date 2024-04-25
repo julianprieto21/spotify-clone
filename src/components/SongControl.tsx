@@ -4,18 +4,18 @@ import { usePlayerStore } from "../store/playerStore";
 import { PauseIcon, PlayButton, PlayIcon } from "./PlayButton";
 
 const Shuffle = () => {
-  const [active, setActive] = useState(false);
+  const { shuffle, setShuffle } = usePlayerStore((state) => state);
   return (
     <button
       type="button"
       title="Shuffle"
       className={`${
-        active
+        shuffle
           ? "text-green/80 hover:text-green "
           : "text-primary/70 hover:text-primary"
       } transition`}
       onClick={() => {
-        setActive(!active);
+        setShuffle(!shuffle);
       }}
     >
       <svg
@@ -31,18 +31,19 @@ const Shuffle = () => {
   );
 };
 const Repeat = () => {
-  const [active, setActive] = useState(false);
+  const { repeat, setRepeat } = usePlayerStore((state) => state);
+
   return (
     <button
       type="button"
       title="Repeat"
       className={`${
-        active
+        repeat
           ? "text-green/80 hover:text-green "
           : "text-primary/70 hover:text-primary"
       } transition`}
       onClick={() => {
-        setActive(!active);
+        setRepeat(!repeat);
       }}
     >
       <svg
@@ -148,11 +149,40 @@ export function SongControl({
   audio: React.RefObject<HTMLAudioElement>;
 }) {
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const { currentMusic } = usePlayerStore((state) => state);
+  const { currentMusic, setCurrentMusic, repeat, shuffle } = usePlayerStore(
+    (state) => state
+  );
 
   useEffect(() => {
-    console.log(currentTime);
+    if (!audio.current) return;
+    if (audio.current.currentTime == audio.current.duration) {
+      if (repeat) {
+        audio.current.currentTime = 0;
+        audio.current.play();
+      } else if (shuffle) {
+        const index = Math.floor(Math.random() * currentMusic.songs.length);
+        const nextSong = {
+          song: currentMusic.songs[index],
+          playlist: currentMusic.playlist,
+          songs: currentMusic.songs,
+        };
+        setCurrentMusic(nextSong);
+      } else {
+        // Seleccionar cancion siguiente en la lista
+        const index = currentMusic.songs.findIndex(
+          (song) => song.id === currentMusic.song.id
+        );
+        if (currentMusic.songs.length - 1 == index) return;
+        const nextSong = {
+          song: currentMusic.songs[index + 1],
+          playlist: currentMusic.playlist,
+          songs: currentMusic.songs,
+        };
+        setCurrentMusic(nextSong);
+      }
+    }
   }, [currentTime]);
+
   useEffect(() => {
     if (!audio.current) return;
     audio.current.addEventListener("timeupdate", handleTimeUpdate);
@@ -160,10 +190,12 @@ export function SongControl({
       audio.current?.removeEventListener("timeupdate", handleTimeUpdate);
     };
   });
+
   const handleTimeUpdate = () => {
     if (!audio.current) return;
     setCurrentTime(audio.current.currentTime);
   };
+
   const formatTime = (time: number) => {
     if (time == null) return `0:00`;
 
