@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { SongControl } from "./SongControl";
 import { usePlayerStore } from "../store/playerStore";
+import SongInfo from "./SongInfo";
 
 export default function Player() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -30,9 +31,9 @@ export default function Player() {
   return (
     <section className="size-full flex flex-row justify-between items-center">
       <audio ref={audioRef} />
-      <div></div>
+      <SongInfo />
       <SongControl audio={audioRef} />
-      <div></div>
+      <div className="w-full"></div>
     </section>
   );
 }
