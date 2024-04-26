@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { PlayerStore, Playlist, Song } from "../lib/types";
+import type { PlayerStore } from "../lib/types";
 
 export const usePlayerStore = create<PlayerStore>((set) => ({
   isPlaying: false,
@@ -22,7 +22,7 @@ export const usePlayerStore = create<PlayerStore>((set) => ({
       name: "",
       image: "",
       duration_sec: 0,
-      author: "",
+      artist: [],
       album: "",
       release_date: new Date(),
     },

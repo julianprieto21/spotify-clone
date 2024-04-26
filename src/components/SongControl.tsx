@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Playlist, Song } from "../lib/types";
 import { usePlayerStore } from "../store/playerStore";
-import { PauseIcon, PlayButton, PlayIcon } from "./PlayButton";
+import { PauseIcon, PlayIcon } from "./PlayButton";
 import { Slider } from "./Slider";
 
 const Shuffle = () => {
@@ -208,7 +208,6 @@ export function SongControl({
   };
 
   const duration = audio.current ? audio.current.duration : 1;
-  const progress = (currentTime / duration) * 100;
 
   return (
     <div className="relative flex flex-col justify-start items-center h-[57px] gap-1.5">
