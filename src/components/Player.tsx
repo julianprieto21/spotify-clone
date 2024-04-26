@@ -34,7 +34,7 @@ export default function Player() {
       <audio ref={audioRef} />
       <SongInfo />
       <SongControl audio={audioRef} />
-      <Actions audio={audioRef} />
+      <Actions />
     </section>
   );
 }

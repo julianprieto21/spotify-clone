@@ -3,7 +3,10 @@ import { Slider } from "./Slider";
 
 const SongPanel = () => {
   return (
-    <button title="Song panel button">
+    <button
+      title="Song panel button"
+      className="text-secondary hover:text-primary transition"
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -19,7 +22,10 @@ const SongPanel = () => {
 
 const Lyrics = () => {
   return (
-    <button title="Lyrics button">
+    <button
+      title="Lyrics button"
+      className="text-secondary hover:text-primary transition"
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -34,7 +40,10 @@ const Lyrics = () => {
 
 const Queue = () => {
   return (
-    <button title="Queue button">
+    <button
+      title="Queue button"
+      className="text-secondary hover:text-primary transition"
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -49,7 +58,10 @@ const Queue = () => {
 
 const Devices = () => {
   return (
-    <button title="Devices button">
+    <button
+      title="Devices button"
+      className="text-secondary hover:text-primary transition"
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -113,7 +125,10 @@ const Volume = () => {
   );
   return (
     <div className="flex flex-row gap-2 items-center justify-center">
-      <button title="Volume button">
+      <button
+        title="Volume button"
+        className="text-secondary hover:text-primary transition"
+      >
         {volume === 0
           ? VolumeMute
           : volume <= 0.25
@@ -140,7 +155,10 @@ const Volume = () => {
 
 const MiniPlayer = () => {
   return (
-    <button title="Mini player button">
+    <button
+      title="Mini player button"
+      className="text-secondary hover:text-primary transition"
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -156,7 +174,10 @@ const MiniPlayer = () => {
 
 const FullScreen = () => {
   return (
-    <button title="Fullscreen button">
+    <button
+      title="Fullscreen button"
+      className="text-secondary hover:text-primary transition"
+    >
       <svg
         aria-hidden="true"
         viewBox="0 0 16 16"
@@ -169,11 +190,7 @@ const FullScreen = () => {
   );
 };
 
-export default function Actions({
-  audio,
-}: {
-  audio: React.RefObject<HTMLAudioElement>;
-}) {
+export default function Actions() {
   return (
     <section className="w-full flex flex-row justify-end items-center text-secondary gap-4 pr-2">
       <SongPanel />
