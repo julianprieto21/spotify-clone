@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { SongControl } from "./SongControl";
 import { usePlayerStore } from "../store/playerStore";
 import SongInfo from "./SongInfo";
+import Actions from "./Actions";
 
 export default function Player() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -14,7 +15,7 @@ export default function Player() {
 
   useEffect(() => {
     if (!audioRef.current) return;
-    const { song, playlist, songs } = currentMusic;
+    const { song } = currentMusic;
     if (song) {
       const src = `music/${song.id}.mp3`;
       audioRef.current.src = src;
@@ -33,7 +34,7 @@ export default function Player() {
       <audio ref={audioRef} />
       <SongInfo />
       <SongControl audio={audioRef} />
-      <div className="w-full"></div>
+      <Actions audio={audioRef} />
     </section>
   );
 }

@@ -229,9 +229,9 @@ export function SongControl({
       </div>
       <div className="flex w-full flex-row justify-between items-center text-secondary/70 text-sm gap-2">
         <p>{formatTime(currentTime)}</p>
-        <span className="h-1 w-[626px] bg-secondary/50 rounded-full mb-0.5 relative">
+        <span className="h-1 w-[626px] bg-secondary/50 rounded-full mb-0.5 relative group">
           <span
-            className="absolute h-1 max-w-[626px] bg-primary rounded-full mb-0.5 w-0"
+            className="absolute h-1 max-w-[626px] bg-primary rounded-full mb-0.5 w-0 group-hover:bg-green"
             style={{ width: `${progress}%` }}
           ></span>
         </span>
