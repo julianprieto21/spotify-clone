@@ -77,6 +77,7 @@ const NextPrevSong = ({
     if (action === "prev") {
       if (audio.current && audio.current.currentTime > 10) {
         audio.current.currentTime = 0;
+        audio.current.play();
       } else {
         // Seleccionar cancion anterior en la lista
         const index = currentMusic.songs.findIndex(
