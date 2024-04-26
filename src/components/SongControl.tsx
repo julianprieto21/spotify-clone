@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Playlist, Song } from "../lib/types";
 import { usePlayerStore } from "../store/playerStore";
 import { PauseIcon, PlayButton, PlayIcon } from "./PlayButton";
+import { Slider } from "./Slider";
 
 const Shuffle = () => {
   const { shuffle, setShuffle } = usePlayerStore((state) => state);
@@ -209,7 +210,7 @@ export function SongControl({
   const progress = (currentTime / duration) * 100;
 
   return (
-    <div className="relative flex flex-col justify-center items-center gap-2 mt-1">
+    <div className="relative flex flex-col justify-start items-center h-[57px] gap-1.5">
       <div className="flex flex-row justify-center items-center gap-6">
         <Shuffle />
         <NextPrevSong
@@ -228,15 +229,22 @@ export function SongControl({
         <Repeat />
       </div>
       <div className="flex w-full flex-row justify-between items-center text-secondary/70 text-sm gap-2">
-        <p>{formatTime(currentTime)}</p>
-        <span className="h-1 w-[626px] bg-secondary/50 rounded-full mb-0.5 relative group">
-          <span
-            className="absolute h-1 max-w-[626px] bg-primary rounded-full mb-0.5 w-0 group-hover:bg-green"
-            style={{ width: `${progress}%` }}
-          ></span>
-        </span>
-
-        <p>{duration ? formatTime(duration) : "0:00"}</p>
+        <p className="w-10 text-right tracking-tight text-[13.4px]">
+          {formatTime(currentTime)}
+        </p>
+        <Slider
+          defaultValue={[0]}
+          max={duration}
+          min={0}
+          className="w-[626px]"
+          value={[audio.current ? audio.current.currentTime : 0]}
+          onValueChange={(value) => {
+            if (audio.current) audio.current.currentTime = value[0];
+          }}
+        />
+        <p className="w-10 text-left tracking-tight text-[13.4px]">
+          {duration ? formatTime(duration) : "0:00"}
+        </p>
       </div>
     </div>
   );

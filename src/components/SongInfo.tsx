@@ -37,7 +37,7 @@ export default function SongInfo() {
   const song = currentMusic.song;
 
   return (
-    <section className="size-full flex flex-row justify-start items-center gap-4">
+    <section className="h-full w-[500px] flex flex-row justify-start items-center gap-4">
       <picture className="pl-2 pb-1">
         {song.id ? (
           <img

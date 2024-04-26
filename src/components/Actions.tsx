@@ -192,7 +192,7 @@ const FullScreen = () => {
 
 export default function Actions() {
   return (
-    <section className="w-full flex flex-row justify-end items-center text-secondary gap-4 pr-2">
+    <section className="w-[500px] flex flex-row justify-end items-center text-secondary gap-4 pr-2">
       <SongPanel />
       <Lyrics />
       <Queue />
