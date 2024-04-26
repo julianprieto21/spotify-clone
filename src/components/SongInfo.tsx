@@ -16,7 +16,7 @@ const AddToList = () => {
   );
 };
 
-const RemoveToList = () => {
+const RemoveFromList = () => {
   return (
     <button className="text-green" title="Remove song from list">
       <svg
@@ -54,13 +54,25 @@ export default function SongInfo() {
             {song.name}
           </h1>
         </a>
-        <a href={`/artist/${song.author}`}>
-          <h2 className="text-sm leading-1 text-secondary hover:text-primary hover:underline">
-            {song.author}
-          </h2>
-        </a>
+        <span className="flex flex-row">
+          {song.artist &&
+            song.artist.map((artist, index) => {
+              return (
+                <>
+                  <a href={`/artist/${artist}`}>
+                    <h2 className="text-sm leading-1 text-secondary hover:text-primary hover:underline">
+                      {artist}
+                    </h2>
+                  </a>
+                  {index !== song.artist.length - 1 && (
+                    <p className="text-sm leading-1 text-secondary">,&nbsp;</p>
+                  )}
+                </>
+              );
+            })}
+        </span>
       </div>
-      {isInList ? <RemoveToList /> : <AddToList />}
+      {isInList ? <RemoveFromList /> : <AddToList />}
     </section>
   );
 }

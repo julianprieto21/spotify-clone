@@ -3,7 +3,7 @@ export type Song = {
   name: string;
   image: string;
   duration_sec: number;
-  author: string;
+  artist: string[];
   album: string;
   release_date: Date;
 };
