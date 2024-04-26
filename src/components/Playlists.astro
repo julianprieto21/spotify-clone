@@ -36,6 +36,7 @@ import type { Playlist } from "../lib/types";
           >
             <img
               src={playlist.image}
+              alt={playlist.name}
               class={`size-12 ${playlist.type == "Artista" ? "rounded-full" : "rounded-md"}`}
             />
             <main class="flex flex-col gap-0.5">

@@ -14,7 +14,11 @@ import { PlayButton } from "./PlayButton";
       return (
         <div class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-md shadow-md">
           <a href={href} class="w-full flex justify-start items-center gap-4 ">
-            <img src={playlist.image} class="size-16 rounded-l-md" />
+            <img
+              src={playlist.image}
+              alt={playlist.name}
+              class="size-16 rounded-l-md"
+            />
             <h1 class="font-semibold">{playlist.name}</h1>
           </a>
           <PlayButton

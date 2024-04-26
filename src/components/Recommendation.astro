@@ -26,6 +26,7 @@ const { title } = Astro.props;
             <a href={href}>
               <img
                 src={playlist.image}
+                alt={playlist.name}
                 class={`aspect-square shadow-md ${playlist.type == "Artista" ? "rounded-full" : "rounded-md"}`}
               />
               <h1 class="mt-2 text-primary text-md">{playlist.name}</h1>

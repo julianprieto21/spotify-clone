@@ -43,16 +43,21 @@ export default function SongInfo() {
           <img
             title={`Image of ${song.name}`}
             src={`images/${song.id}.jpg`}
+            alt={song.name}
             className="size-14 rounded-sm"
           />
         ) : null}
       </picture>
       <div className="flex flex-col justify-center items-start pt-2">
-        <a href="#">
-          <h1 className="text-sm leading-4 text-primary">{song.name}</h1>
+        <a href={`/track/${song.id}`}>
+          <h1 className="text-sm leading-4 text-primary hover:underline">
+            {song.name}
+          </h1>
         </a>
-        <a href="#">
-          <h2 className="text-sm leading-1 text-secondary">{song.author}</h2>
+        <a href={`/artist/${song.author}`}>
+          <h2 className="text-sm leading-1 text-secondary hover:text-primary hover:underline">
+            {song.author}
+          </h2>
         </a>
       </div>
       {isInList ? <RemoveToList /> : <AddToList />}
