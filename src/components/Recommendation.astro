@@ -14,7 +14,7 @@ const { title } = Astro.props;
       Mostrar todos
     </h2>
   </div>
-  <ul class="flex flex-row mt-1">
+  <ul class="flex flex-row mt-0.5">
     {
       PLAYLISTS.slice(0, 8).map((playlist: Playlist) => {
         const type = playlist.type == "Lista" ? "playlist" : "album";
@@ -25,12 +25,14 @@ const { title } = Astro.props;
           <div class="relative h-[268px] w-48 hover:bg-secondary/5 rounded-md p-3 group">
             <a href={href}>
               <img
-                src={playlist.image}
+                src={`images/${playlist.id}.jpg`}
                 alt={playlist.name}
                 class={`aspect-square shadow-md ${playlist.type == "Artista" ? "rounded-full" : "rounded-md"}`}
               />
-              <h1 class="mt-2 text-primary text-md">{playlist.name}</h1>
-              <button class="mt-2 text-secondary text-sm">
+              <h1 class="mt-2 text-primary text-md line-clamp-1">
+                {playlist.name}
+              </h1>
+              <button class="mt-2 text-secondary text-sm line-clamp-2">
                 De {playlist.owner}
               </button>
             </a>

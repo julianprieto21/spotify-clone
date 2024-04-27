@@ -12,12 +12,12 @@ import { PlayButton } from "./PlayButton";
         ? "collection/tracks"
         : `/${type}/${playlist.id}`;
       return (
-        <div class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-md shadow-md">
+        <div class="group relative bg-secondary/10 hover:bg-secondary/20 transition duration-200 text-primary h-16 rounded-[4px] shadow-lg">
           <a href={href} class="w-full flex justify-start items-center gap-4 ">
             <img
-              src={playlist.image}
+              src={`images/${playlist.id}.jpg`}
               alt={playlist.name}
-              class="size-16 rounded-l-md"
+              class="size-16 rounded-l-[4px]"
             />
             <h1 class="font-semibold">{playlist.name}</h1>
           </a>
