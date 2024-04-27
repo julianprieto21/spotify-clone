@@ -36,6 +36,7 @@ export default function SongInfo() {
   const isInList = false;
   const song = currentMusic.song;
 
+  if (song.id === "") return <div className="h-full w-[500px]"></div>;
   return (
     <section className="h-full w-[500px] flex flex-row justify-start items-center gap-4">
       <picture className="pl-2 pb-1">
