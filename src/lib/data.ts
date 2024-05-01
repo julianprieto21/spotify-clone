@@ -14,51 +14,51 @@ export const PLAYLISTS: Playlist[] = [
     color: "#FF5733",
     isLikes: false,
   },
-  {
-    id: "2",
-    name: "Música relajante",
-    type: "Lista",
-    own: false,
-    length: 30,
-    pin: false,
-    image: "https://example.com/image2.jpg",
-    owner: "María González",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#28A745", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "3",
-    name: "Los mejores álbumes",
-    type: "Álbum",
-    own: true,
-    length: 15,
-    pin: false,
-    image: "https://example.com/image3.jpg",
-    owner: "Carlos Ramírez",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#007BFF", // Color en formato hexadecimal
-    isLikes: false,
-  },
-  {
-    id: "4",
-    name: "Canciones que te gustan",
-    type: "Lista",
-    own: false,
-    length: 12,
-    pin: false,
-    image: "https://example.com/image4.jpg",
-    owner: "Julián Prieto",
-    songs_id: [
-      // Agrega objetos de tipo Song aquí
-    ],
-    color: "#FFC107", // Color en formato hexadecimal
-    isLikes: true,
-  },
+  // {
+  //   id: "2",
+  //   name: "Música relajante",
+  //   type: "Lista",
+  //   own: false,
+  //   length: 30,
+  //   pin: false,
+  //   image: "https://example.com/image2.jpg",
+  //   owner: "María González",
+  //   songs_id: [
+  //     // Agrega objetos de tipo Song aquí
+  //   ],
+  //   color: "#28A745", // Color en formato hexadecimal
+  //   isLikes: false,
+  // },
+  // {
+  //   id: "3",
+  //   name: "Los mejores álbumes",
+  //   type: "Álbum",
+  //   own: true,
+  //   length: 15,
+  //   pin: false,
+  //   image: "https://example.com/image3.jpg",
+  //   owner: "Carlos Ramírez",
+  //   songs_id: [
+  //     // Agrega objetos de tipo Song aquí
+  //   ],
+  //   color: "#007BFF", // Color en formato hexadecimal
+  //   isLikes: false,
+  // },
+  // {
+  //   id: "4",
+  //   name: "Canciones que te gustan",
+  //   type: "Lista",
+  //   own: false,
+  //   length: 12,
+  //   pin: false,
+  //   image: "https://example.com/image4.jpg",
+  //   owner: "Julián Prieto",
+  //   songs_id: [
+  //     // Agrega objetos de tipo Song aquí
+  //   ],
+  //   color: "#FFC107", // Color en formato hexadecimal
+  //   isLikes: true,
+  // },
 ];
 
 export const SONGS: Song[] = [
